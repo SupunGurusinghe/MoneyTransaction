@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <h2>Dashboard</h2>
+    {% if unmarked %}
+      <hr>
+      <h2>New Transactions</h2>
+      <table>
+        {% for value in unmarked %}
+          <tr>
+            <td>Amount: Rs.{{ value.amount }}</td>
+            <td>Date & Time: {{ value.date }}</td>
+            <td><a href="update/{{ value.id }}"><button>Confirm and Close</button></a></td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+    {% endif %}
+    <a href="send/"><button>Transfer Money</button></a>
+  {% else %}
+    <h2>Money Wallet, makes your day easy.</h2>
+  {% endif %}
+{% endblock %}
