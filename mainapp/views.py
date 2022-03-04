@@ -20,7 +20,11 @@ def sendemail(request):
         transaction.save()
 
         # create url
-        content = 'http://127.0.0.1:8000'
+        content = """
+        You Have a New Transaction
+        Confirm Your Payment
+        Link: http://127.0.0.1:8000
+        """
 
         # sending message as an email
         send_mail(
